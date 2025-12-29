@@ -4,8 +4,8 @@
 
   roles:
     - role: ubuntu
-      when: ansible_distribution == "ubuntu"
+      when: ansible_distribution == "Ubuntu"
 
-   - role: amazon
-      when: ansible_distribution == "amazon"
+    - role: amazon
+      when: ansible_distribution == "Amazon"
 
