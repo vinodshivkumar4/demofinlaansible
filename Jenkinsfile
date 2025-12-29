@@ -5,15 +5,15 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'master',
-                url: 'https://github.com/your-repo.git'
+                    url: 'https://github.com/vinodshivkumar4/demofinlaansible.git',
+                    credentialsId: 'ansible'
             }
         }
 
         stage('Ansible Deploy') {
             steps {
                 sh '''
-                cd ansible
-                ansible-playbook -i inventory deploy.yml
+                ansible-playbook deploy.yml
                 '''
             }
         }
