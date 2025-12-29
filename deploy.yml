@@ -1,0 +1,11 @@
+- name: Deploy based on OS
+  hosts: all
+  become: yes
+
+  roles:
+    - role: ubuntu
+      when: ansible_distribution == "ubuntu"
+
+   - role: amazon
+      when: ansible_distribution == "amazon"
+
