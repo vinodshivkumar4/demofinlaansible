@@ -6,16 +6,15 @@ pipeline {
             steps {
                 git branch: 'master',
                     url: 'https://github.com/vinodshivkumar4/demofinlaansible.git',
-                    credentialsId: 'ansible' // Git credentials if required
+                    credentialsId: 'ansible'
             }
         }
 
         stage('Ansible Deploy') {
             steps {
-                // Use SSH Agent with the private key stored in Jenkins
                 sshagent(['ansible-credential-id']) {
                     sh '''
-                    ansible-playbook $WORKSPACE/deploy.yml
+                    ansible-playbook -i "172.31.93.97,172.31.92.212," deploy.yml -u ansible --ssh-extra-args="-o StrictHostKeyChecking=no"
                     '''
                 }
             }
