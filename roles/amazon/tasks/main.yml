@@ -1,0 +1,10 @@
+- name: Install nginx on Amazon Linux
+  yum:
+    name: nginx
+    state: present
+
+- name: Start nginx on Amazon Linux
+  service:
+    name: nginx
+    state: started
+

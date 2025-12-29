@@ -1,0 +1,11 @@
+- name: Install nginx on Ubuntu
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Start nginx on Ubuntu
+  service:
+    name: nginx
+    state: started
+
