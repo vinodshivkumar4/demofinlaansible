@@ -13,7 +13,7 @@ pipeline {
         stage('Ansible Deploy') {
             steps {
                 sh '''
-                ansible-playbook deploy.yml
+                ansible-playbook $WORKSPACE/deploy.yml
                 '''
             }
         }
